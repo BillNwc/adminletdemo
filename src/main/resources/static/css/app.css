@@ -1,0 +1,36 @@
+.chart-legend li {
+    float: left;
+}
+
+.chart-legend li span {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-right: 5px;
+}
+
+.color {
+    background-color: #FE8463;
+    background-color: #9BCA63;
+    background-color: #FAD860;
+    background-color: #F3A43B;
+    background-color: #60C0DD;
+    background-color: #D7504B;
+    background-color: #C6E579;
+    background-color: #F4E001;
+    background-color: #F0805A;
+    background-color: #26C0C0;
+    background-color: #e93f33;
+    background-color: #ff6384;
+    background-color: #36a2eb;
+    background-color: #ffce56;
+    background-color: #4bc0c0;
+    background-color: #9966ff;
+    background-color: #ff9f40;
+
+}
+
+.tooltip-inner {
+    text-align:left;
+    max-width: 600px;
+}
