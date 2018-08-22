@@ -16,4 +16,28 @@ public class PageInfo<T> {
         this.data = datas;
     }
 
+	public Long getRecordsTotal() {
+		return recordsTotal;
+	}
+
+	public void setRecordsTotal(Long recordsTotal) {
+		this.recordsTotal = recordsTotal;
+	}
+
+	public Long getRecordsFiltered() {
+		return recordsFiltered;
+	}
+
+	public void setRecordsFiltered(Long recordsFiltered) {
+		this.recordsFiltered = recordsFiltered;
+	}
+
+	public List<?> getData() {
+		return data;
+	}
+
+	public void setData(List<?> data) {
+		this.data = data;
+	}
+
 }
