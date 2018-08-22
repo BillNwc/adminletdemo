@@ -1,5 +1,5 @@
 /**
- * Created by watts on 2017/08/15.
+ * Created by Amy·Duan on 2018/08/20.
  */
 var Global = {
     contextPath : "",
