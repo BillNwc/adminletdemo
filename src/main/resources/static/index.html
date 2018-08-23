@@ -78,6 +78,19 @@ table.dataTable tbody>tr>td {
     border-radius: 0;
     box-shadow: none;
 }
+.required-spot{
+    color: red;
+    position: absolute;
+    font-size: 14px;
+    top: 5px;
+    font-weight: 600;
+}
+.marginl-107{
+    margin-left: 107px;
+}
+.marginl-207{
+    margin-left: 207px;
+}
 </style>
 </head>
 
@@ -269,14 +282,14 @@ table.dataTable tbody>tr>td {
 											value="-1" />
 										<div class="col-sm-5">
 											<input type="text" class="form-control" name="loginId" id="loginId" placeholder="请输入登录ID" />
-											<span style="color: red; position: absolute; margin-left: 207px; font-size:  12px; top: 3px;">＊</span>
+											<span class="required-spot marginl-207">＊</span>
 										</div>
 									</div>
 									<div class="form-group">
 										<span class="col-sm-3 control-label" style="font-size: 12px;">所属部门：</span>
-										<div class="col-sm-5" style="padding-left:0px;">
+										<div class="col-sm-5" style="padding-left:0;">
 											<input type="text" class="form-control " style="width: 200px; height: 24px; border-radius:5px; " name="deptName" id="deptName" placeholder="请输入归属部门" />
-											<span style="color: red; position: absolute; margin-left: 207px; font-size:  12px; top: 3px;">＊</span>
+                                            <span class="required-spot marginl-207">＊</span>
 										</div>
 									</div>
 									<div class="form-group">
@@ -286,37 +299,39 @@ table.dataTable tbody>tr>td {
                                                         <option>是</option>
                                                         <option>否</option>
                                                     </select>
-                                                    <span style="color: red; position: absolute; margin-left: 107px; font-size:  12px; top: 8px;">＊</span>
+                                                <span class="required-spot marginl-107">＊</span>
                                                 </div>
 									</div>
-									
+
 									<div class="form-group">
 										<span class="col-sm-3 control-label" style="font-size: 12px;">员工编号：</span>
-										<div class="col-sm-5" style="padding-left:0px;">
+										<div class="col-sm-5" style="padding-left:0;">
 											<input type="text" class="form-control" style="width: 200px; height: 24px; border-radius:5px;" name="empNo"
 												id="empNo" placeholder="员工编号" />
 										</div>
 									</div>
 									<div class="form-group">
 										<span class="col-sm-3 control-label" style="font-size: 12px;">员工姓名：</span>
-										<div class="col-sm-5" style="padding-left:0px;">
+										<div class="col-sm-5" style="padding-left:0;">
 											<input type="text" class="form-control" style="width: 200px; height: 24px; border-radius:5px;" name="phone" id="phone" placeholder="请输入员工姓名" />
-											<span style="color: red; position: absolute; margin-left: 207px; font-size: 12px; top: 3px;">＊</span>
+                                            <span class="required-spot marginl-207">＊</span>
 										</div>
 									</div>
 									<div class="form-group">
 										<span class="col-sm-3 control-label" style="font-size: 12px;">密码：</span>
-										<div class="col-sm-5" style="padding-left:0px;">
+										<div class="col-sm-5" style="padding-left:0;">
 											<input type="password" class="form-control" style="width: 200px; height: 24px; border-radius:5px;" name="password"
 												id="password" placeholder="请输入密码" />
+                                            <span style="display: inline-table;position: absolute;color: #666666;font-size: 12px;left: 210px;top: 3px;">
+                                                默认为系统初始密码&nbsp;&nbsp;<a href="javascript:" onclick="">重置</a>
+                                            </span>
 										</div>
-										<span style="color: #666666; position: absolute; margin-left: 207px; font-size:  12px; top: 3px;">默认为系统初始密码</span>
 									</div>
 									<div class="form-group">
 										<span class="col-sm-3 control-label" style="font-size: 12px;">电话：</span>
-										<div class="col-sm-5" style="padding-left:0px;">
+										<div class="col-sm-5" style="padding-left:0;">
 											<input type="text" class="form-control" style="width: 200px; height: 24px; border-radius:5px;" name="phoneNumber" id="phoneNumber" placeholder="请输入密码" />
-											<span style="color: red; position: absolute; margin-left: 207px; font-size:  12px; top: 3px;">＊</span>
+                                            <span class="required-spot marginl-207">＊</span>
 										</div>
 									</div>
 									<div class="form-group">
@@ -326,12 +341,12 @@ table.dataTable tbody>tr>td {
                                                         <option>内部员工</option>
                                                         <option>外部客户</option>
                                                     </select>
-                                                    <span style="color: red; position: absolute; margin-left: 107px; font-size:  12px; top: 8px;">＊</span>
+                                                <span class="required-spot marginl-107">＊</span>
                                                 </div>
 									</div>
 									<div class="form-group">
 										<span class="col-sm-3 control-label" style="font-size: 12px;">备注：</span>
-										<div class="col-sm-5" style="padding-left:0px;">
+										<div class="col-sm-5" style="padding-left:0;">
 											<textarea rows="10" cols="100" class="form-control" style="width: 200px; height: 80px; border-radius:5px;" name="password"
 												id="remark"></textarea>
 										</div>
@@ -339,7 +354,7 @@ table.dataTable tbody>tr>td {
 									<div class="form-group"></div>
 									<div class="form-group text-center">
 										<span class="col-sm-3 control-label"></span>
-										<div class="col-sm-5" style="padding-left:0px;">
+										<div class="col-sm-5" style="padding-left:0;">
 											<button type="button" class="btn btn-sm btn-primary submit" onclick="User.formSubmit()">保存</button>
 											<button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">返回</button>
 										</div>
@@ -414,7 +429,7 @@ table.dataTable tbody>tr>td {
                 {
                     "data": "id", "mRender": function (id) {
                         return '<img src="img/icon/修改.png" class="btn btn-xs" onclick="User.modify(' + id + ')" width=“28px” height="20px"/> ' +
-                            '<img src="img/icon/删除.png" class="btn btn-xs" onclick="User.delete(' + id + ')" width=“28px” height="20px"/>' + 
+                            '<img src="img/icon/删除.png" class="btn btn-xs" onclick="User.delete(' + id + ')" width=“28px” height="20px"/>' +
                             '<img src="img/icon/授权.png" class="btn btn-xs" onclick="User.allot(' + id + ')" width=“28px” height="20px"/>';
                     }
                 }
@@ -453,7 +468,7 @@ table.dataTable tbody>tr>td {
             //查询按钮触发
             $('#searchBtn').off('click').on('click',User.query);
         });
-        
+
         //定义界面操作对象
         var User2 = {
             table: dataTable2,
