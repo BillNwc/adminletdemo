@@ -89,7 +89,7 @@ table.dataTable tbody>tr>td {
 			<section class="content-header">
 				<!-- <div style="font-size: 15px; font-weight: bold; color: #585858; margin-top: 10px">内部员工</div> -->
                 <div class="nav-tabs-custom">
-                    <ul id="myTab" class="nav nav-tabs" style="" >
+                    <ul id="myTab" class="nav nav-tabs">
                         <li class="active">
                             <a href="#insideEmp" data-toggle="tab"
                                style="font-size: 15px; font-weight: bold; color: #585858;"> 内部员工 </a>
@@ -98,14 +98,11 @@ table.dataTable tbody>tr>td {
                                style="font-size: 15px; font-weight: bold; color: #585858;"> 外部客户 </a></li>
                     </ul>
                 </div>
-			<!--</section>-->
-			<!-- Main content -->
-			<!--<section class="content">-->
                 <div class="tab-content">
                     <div class="tab-pane active" id="insideEmp">
                         <div class="row">
                             <div class="col-lg-12 col-xs-12">
-                                <div class="box box-default" style= "border: none;"> <!-- style="border-top: 0px solid #dfdfdf;" -->
+                                <div class="box box-default" style= "border: none;">
                                     <div class="box-header" style="padding-bottom: 0">
                                         <form class="form-horizontal" style="margin-left: 10px;">
                                             <div class="form-group" style="margin-top: 10px">
@@ -176,28 +173,27 @@ table.dataTable tbody>tr>td {
                         </div>
                     </div>
                     <div class="tab-pane" id="outsideEmp">
-                        <h4>第二个tab的表格代码</h4>
                         <div class="row">
                             <div class="col-lg-12 col-xs-12">
                                 <div class="box box-default" style= "border: none;"> <!-- style="border-top: 0px solid #dfdfdf;" -->
                                     <div class="box-header" style="padding-bottom: 0">
                                         <form class="form-horizontal" style="margin-left: 10px;">
                                             <div class="form-group" style="margin-top: 10px">
-                                                <span class="col-sm-1 control-label no-padding search-label">用户2登录号：</span>
+                                                <span class="col-sm-1 control-label no-padding search-label">用户登录号：</span>
                                                 <div class="col-sm-1 no-padding">
                                                     <input type="text" id="q1" class="input-sm form-control"
                                                            placeholder="" />
                                                 </div>
 
-                                                <span class="col-sm-1 control-label no-padding search-label">用户2姓名：</span>
+                                                <span class="col-sm-1 control-label no-padding search-label">用户姓名：</span>
                                                 <div class="col-sm-1 no-padding">
                                                     <input type="text" id="q2" class="input-sm form-control"
                                                            placeholder="" />
                                                 </div>
 
-                                                <span class="col-sm-1 control-label no-padding search-label">性2别：</span>
+                                                <span class="col-sm-1 control-label no-padding search-label">性别：</span>
                                                 <div class="col-sm-1 no-padding">
-                                                    <select class="form-control input-sm" id="q3">
+                                                    <select class="form-control input-sm select-width-70" id="q3">
                                                         <option>全部</option>
                                                         <option>男</option>
                                                         <option>女</option>
@@ -206,7 +202,7 @@ table.dataTable tbody>tr>td {
 
                                                 <span class="col-sm-1 control-label no-padding search-label">管理员:</span>
                                                 <div class="col-sm-1 no-padding">
-                                                    <select class="form-control input-sm" id="q4">
+                                                    <select class="form-control input-sm select-width-70" id="q4">
                                                         <option>全部</option>
                                                         <option>是</option>
                                                         <option>否</option>
@@ -214,27 +210,28 @@ table.dataTable tbody>tr>td {
                                                 </div>
                                                 <span class="col-sm-1 control-label no-padding search-label">用户状态：</span>
                                                 <div class="col-sm-1 no-padding">
-                                                    <select class="form-control input-sm" id="q5">
+                                                    <select class="form-control input-sm select-width-70" id="q5">
                                                         <option>全部</option>
                                                         <option>是</option>
                                                         <option>否</option>
                                                     </select>
                                                 </div>
-                                                <div class="col-sm-1">
-                                                    <a class="btn btn-sm btn-primary" id="searchBtn">查询</a>
-                                                </div>
+                                                <a class="btn btn-sm btn-primary" style="position: absolute;right: 130px;" id="addBtn">添加</a>
+                                                <a class="btn btn-sm btn-primary" style="position: absolute;right: 70px;" id="improtBtn">导入</a>
+                                                <a class="btn btn-sm btn-primary" style="position: absolute;right: 10px;" id="searchBtn">查询</a>
                                             </div>
                                         </form>
                                     </div>
                                     <!-- /.box-header -->
                                     <div class="box-body" style="margin-top: -4px">
-                                        <table id="dataTable"
+                                        <table id="dataTable2"
                                                class="table text-center table-striped table-bordered table-hover">
                                             <thead>
                                             <tr>
                                                 <th>登录ID</th>
                                                 <th>用户姓名</th>
                                                 <th>所属部门</th>
+                                                <th>手机号</th>
                                                 <th>性别</th>
                                                 <th>管理员</th>
                                                 <th>启用</th>
@@ -242,7 +239,7 @@ table.dataTable tbody>tr>td {
                                                 <th>操作</th>
                                             </tr>
                                             </thead>
-                                            <tbody id="dataTableBody">
+                                            <tbody id="dataTableBody2">
                                             </tbody>
                                         </table>
                                     </div>
@@ -260,51 +257,91 @@ table.dataTable tbody>tr>td {
 							<div class="modal-header">
 								<button type="button" class="close" data-dismiss="modal"
 									aria-hidden="true">&times;</button>
-								<h4 class="modal-title" id="modalLable">用户信息</h4>
+								<h6 class="modal-title" id="modalLable">客户信息：</h6>
 							</div>
 							<!-- form start -->
 							<form id="form" class="form-horizontal" role="form"
 								action="index/" method="post">
 								<div class="modal-body">
-									<div class="form-group">
-										<span class="col-sm-3 control-label">用户名1</span> <input
-											type="hidden" class="form-control" name="id" id="id"
+									<div class="form-group" style="display: none;">
+										<span class="col-sm-3 control-label">登录ID：</span> <input
+											type="hidden" class="form-control" name="loginId" id="loginId"
 											value="-1" />
 										<div class="col-sm-5">
-											<input type="text" class="form-control" name="firstname"
-												id="firstname" placeholder="请输入用户名" /> <span
-												style="color: red; position: absolute; right: 0; top: 10px;">＊</span>
+											<input type="text" class="form-control" name="loginId" id="loginId" placeholder="请输入登录ID" />
+											<span style="color: red; position: absolute; margin-left: 207px; font-size:  12px; top: 3px;">＊</span>
 										</div>
 									</div>
 									<div class="form-group">
-										<span class="col-sm-3 control-label">用户名2</span>
-										<div class="col-sm-5">
-											<input type="text" class="form-control" name="lastname"
-												id="lastname" placeholder="请输入用户名" />
+										<span class="col-sm-3 control-label" style="font-size: 12px;">所属部门：</span>
+										<div class="col-sm-5" style="padding-left:0px;">
+											<input type="text" class="form-control " style="width: 200px; height: 24px; border-radius:5px; " name="deptName" id="deptName" placeholder="请输入归属部门" />
+											<span style="color: red; position: absolute; margin-left: 207px; font-size:  12px; top: 3px;">＊</span>
 										</div>
 									</div>
 									<div class="form-group">
-										<span class="col-sm-3 control-label">用户名1</span>
-										<div class="col-sm-5">
-											<input type="text" class="form-control" name="email"
-												id="email" placeholder="请输入邮箱" />
+										<span class="col-sm-3 control-label" style="font-size: 12px;">管理员：</span>
+                                         	<div class="col-sm-1 no-padding">
+                                                   <select class="form-control input-sm select-width-70" id="isAdmin" name="isAdmin" style="width: 100px; height: 24px;">
+                                                        <option>是</option>
+                                                        <option>否</option>
+                                                    </select>
+                                                    <span style="color: red; position: absolute; margin-left: 107px; font-size:  12px; top: 8px;">＊</span>
+                                                </div>
+									</div>
+									
+									<div class="form-group">
+										<span class="col-sm-3 control-label" style="font-size: 12px;">员工编号：</span>
+										<div class="col-sm-5" style="padding-left:0px;">
+											<input type="text" class="form-control" style="width: 200px; height: 24px; border-radius:5px;" name="empNo"
+												id="empNo" placeholder="员工编号" />
 										</div>
 									</div>
 									<div class="form-group">
-										<span class="col-sm-3 control-label">用户名1</span>
-										<div class="col-sm-5">
-											<input type="text" class="form-control" name="phone"
-												id="phone" placeholder="请输入手机号" />
+										<span class="col-sm-3 control-label" style="font-size: 12px;">员工姓名：</span>
+										<div class="col-sm-5" style="padding-left:0px;">
+											<input type="text" class="form-control" style="width: 200px; height: 24px; border-radius:5px;" name="phone" id="phone" placeholder="请输入员工姓名" />
+											<span style="color: red; position: absolute; margin-left: 207px; font-size: 12px; top: 3px;">＊</span>
+										</div>
+									</div>
+									<div class="form-group">
+										<span class="col-sm-3 control-label" style="font-size: 12px;">密码：</span>
+										<div class="col-sm-5" style="padding-left:0px;">
+											<input type="password" class="form-control" style="width: 200px; height: 24px; border-radius:5px;" name="password"
+												id="password" placeholder="请输入密码" />
+										</div>
+										<span style="color: #666666; position: absolute; margin-left: 207px; font-size:  12px; top: 3px;">默认为系统初始密码</span>
+									</div>
+									<div class="form-group">
+										<span class="col-sm-3 control-label" style="font-size: 12px;">电话：</span>
+										<div class="col-sm-5" style="padding-left:0px;">
+											<input type="text" class="form-control" style="width: 200px; height: 24px; border-radius:5px;" name="phoneNumber" id="phoneNumber" placeholder="请输入密码" />
+											<span style="color: red; position: absolute; margin-left: 207px; font-size:  12px; top: 3px;">＊</span>
+										</div>
+									</div>
+									<div class="form-group">
+										<span class="col-sm-3 control-label" style="font-size: 12px;">员工类型：</span>
+                                         	<div class="col-sm-1 no-padding">
+                                                   <select class="form-control input-sm select-width-70" id="type" name="type" style="width: 100px; height: 24px;">
+                                                        <option>内部员工</option>
+                                                        <option>外部客户</option>
+                                                    </select>
+                                                    <span style="color: red; position: absolute; margin-left: 107px; font-size:  12px; top: 8px;">＊</span>
+                                                </div>
+									</div>
+									<div class="form-group">
+										<span class="col-sm-3 control-label" style="font-size: 12px;">备注：</span>
+										<div class="col-sm-5" style="padding-left:0px;">
+											<textarea rows="10" cols="100" class="form-control" style="width: 200px; height: 80px; border-radius:5px;" name="password"
+												id="remark"></textarea>
 										</div>
 									</div>
 									<div class="form-group"></div>
 									<div class="form-group text-center">
 										<span class="col-sm-3 control-label"></span>
-										<div class="col-sm-5">
-											<button type="button" class="btn btn-sm btn-primary submit"
-												onclick="User.formSubmit()">保存</button>
-											<button type="button" class="btn btn-sm btn-primary"
-												data-dismiss="modal">返回</button>
+										<div class="col-sm-5" style="padding-left:0px;">
+											<button type="button" class="btn btn-sm btn-primary submit" onclick="User.formSubmit()">保存</button>
+											<button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">返回</button>
 										</div>
 									</div>
 								</div>
@@ -350,7 +387,7 @@ table.dataTable tbody>tr>td {
 		<script type="text/javascript">
         //定义界面操作对象
         var User = {
-            table: null,
+            table: dataTable,
             selectId:null,
             //表单提交回调
             formCallBack : {
@@ -377,7 +414,8 @@ table.dataTable tbody>tr>td {
                 {
                     "data": "id", "mRender": function (id) {
                         return '<img src="img/icon/修改.png" class="btn btn-xs" onclick="User.modify(' + id + ')" width=“28px” height="20px"/> ' +
-                            '<img src="img/icon/删除.png" class="btn btn-xs" onclick="User.delete(' + id + ')" width=“28px” height="20px"/>';
+                            '<img src="img/icon/删除.png" class="btn btn-xs" onclick="User.delete(' + id + ')" width=“28px” height="20px"/>' + 
+                            '<img src="img/icon/授权.png" class="btn btn-xs" onclick="User.allot(' + id + ')" width=“28px” height="20px"/>';
                     }
                 }
             ];
@@ -395,12 +433,6 @@ table.dataTable tbody>tr>td {
             //表格实例化
             table.init();
         };
-        User.formSubmit = function () {
-            $('#form').ajaxSubmit(User.formCallBack);
-        };
-        User.add = function () {
-            $('#modal').modal();
-        };
         User.modify = function (id) {
             new $ajax('/index/'+id,function (data) {
                 //查询赋值
@@ -414,12 +446,88 @@ table.dataTable tbody>tr>td {
             }).doGet().start();
         };
 
+        //界面初始化操作
+        $(function () {
+            //第一次初始化
+            User.query();
+            //查询按钮触发
+            $('#searchBtn').off('click').on('click',User.query);
+        });
+        
+        //定义界面操作对象
+        var User2 = {
+            table: dataTable2,
+            selectId:null,
+            //表单提交回调
+            formCallBack : {
+                success : function (data) {
+                    $('#modal').modal('hide');
+                    User2.table.reload();
+                    MyModal.alert('成功!');
+                },
+                error : function() {
+                    MyModal.alert({message:'系统发生错误!',modalClass:'modal-danger'});
+                }
+            }
+        };
+        //定义表格列渲染
+        User2.tableCol = function () {
+            return [
+                {"data": "loginId"},
+                {"data": "userName"},
+                {"data": "deptName"},
+                {"data": "phoneNumber"},
+                {"data": "sex"},
+                {"data": "isAdmin"},
+                {"data": "isStart"},
+                {"data": "updateTime"},
+                {
+                    "data": "id", "mRender": function (id) {
+                        return '<img src="img/icon/修改.png" class="btn btn-xs" onclick="User2.modify(' + id + ')" width=“28px” height="20px"/> ' +
+                            '<img src="img/icon/删除.png" class="btn btn-xs" onclick="User2.delete(' + id + ')" width=“28px” height="20px"/>' +
+                            '<img src="img/icon/授权.png" class="btn btn-xs" onclick="User2.allot(' + id + ')" width=“28px” height="20px"/>';
+                    }
+                }
+            ];
+        };
+        //查询数据
+        User2.query = function () {
+            //获取数据列定义
+            const col = User2.tableCol();
+            //创建表格对象
+            const table = new CommonTable('dataTable2', 'index/find/', col, 'data');
+            User2.table = table;
+            //设置服务器分页
+            table.setServerSide(true);
+            table.setData({"q1": $('#q1').val(),"q2": $('#q2').val(),"q3": $('#q3').val(),"q4": $('#q4').val(),"q5": $('#q5').val()});
+            //表格实例化
+            table.init();
+        };
+        User2.formSubmit = function () {
+            $('#form').ajaxSubmit(User.formCallBack);
+        };
+        User2.add = function () {
+            $('#modal').modal();
+        };
+        User2.modify = function (id) {
+            new $ajax('/index/'+id,function (data) {
+                //查询赋值
+                const form = $("#form");
+                form.find('#loginId').val(data.loginId);
+                form.find('#userName').val(data.userName);
+                form.find('#sex').val(data.sex);
+                form.find('#isAdmin').val(data.isAdmin);
+                form.find('#isStart').val(data.isStart);
+                $('#modal').modal();
+            }).doGet().start();
+        };
+
         //删除
-        User.delete = function (id) {
+        User2.delete = function (id) {
             MyModal.confirm({message : '是否确定删除？'}).on(function(param){
                 if(param){
                     new $ajax('index/'+id,function (data) {
-                        User.table.reload();
+                    		User2.table.reload();
                         MyModal.alert('成功!');
                     }).doDelete().start();
                 }
@@ -428,11 +536,11 @@ table.dataTable tbody>tr>td {
         //界面初始化操作
         $(function () {
             //第一次初始化
-            User.query();
+            User2.query();
             //查询按钮触发
-            $('#searchBtn').off('click').on('click',User.query);
+            $('#searchBtn').off('click').on('click',User2.query);
             //添加按钮触发
-            $('#addBtn').off('click').on('click',User.add);
+            $('#addBtn').off('click').on('click',User2.add);
         });
     </script>
 </body>

@@ -11,13 +11,22 @@ import lombok.Data;
 public class DemoEntity {
 
     private Long id;
-    private String loginId;
+    private String empNo;
+    public String getEmpNo() {
+		return empNo;
+	}
+	public void setEmpNo(String empNo) {
+		this.empNo = empNo;
+	}
+	private String loginId;
     private String userName;
+    private String companyName;
     private String deptName;
     private String sex;
     private String isAdmin;
     private String isStart;
     private Date updateTime;
+    private String phoneNumber;
 	public Long getId() {
 		return id;
 	}
@@ -67,6 +76,17 @@ public class DemoEntity {
 	public void setUpdateTime(Date updateTime) {
 		this.updateTime = updateTime;
 	}
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+	public String getCompanyName() {
+		return companyName;
+	}
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
+	}
 	
-
 }

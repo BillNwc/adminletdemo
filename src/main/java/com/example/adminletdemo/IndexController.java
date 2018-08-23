@@ -37,12 +37,14 @@ public class IndexController {
             DemoEntity demo = new DemoEntity();
             demo.setId((long)i);
             demo.setLoginId("099"+i);
-            demo.setUserName("张"+i);
+            demo.setUserName("张"+(i+1));
+            demo.setCompanyName("上海润迅");
             demo.setDeptName("研发部");
             demo.setSex("女");
             demo.setIsAdmin("是");
             demo.setIsStart("是");
             demo.setUpdateTime(new Date());
+            demo.setPhoneNumber("17718181919");
             list.add(demo);
         }
         return new PageInfo<>(list);
@@ -62,10 +64,12 @@ public class IndexController {
         demo.setId(33l);
         demo.setLoginId("091");
         demo.setUserName("张三");
+        demo.setCompanyName("上海润迅");
         demo.setDeptName("研发部");
         demo.setSex("女");
         demo.setIsAdmin("否");
         demo.setIsStart("否");
+        demo.setPhoneNumber("17718181919");
         demo.setUpdateTime(new Date());
         return demo;
     }
