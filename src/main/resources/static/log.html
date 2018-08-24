@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>日志监控</title>
+<link href="img/favicon.ico" rel="shortcut icon" />
+<link href="plugins/select2/select2.min.css" rel="stylesheet"
+	type="textcss" />
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+<link rel="stylesheet" href="css/font-awesome.min.css" />
+<link rel="stylesheet" href="css/ionicons.min.css" />
+<link rel="stylesheet"
+	href="plugins/datatables/dataTables.bootstrap.css" />
+<link rel="stylesheet" href="css/AdminLTE.min.css" />
+<link rel="stylesheet" href="css/skins/_all-skins.min.css" />
+<link href="plugins/jstree/dist/themes/default/style.min.css"
+	rel="stylesheet" type="textcss" />
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+    <script src="js/html5shiv.min.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+<style type="text/css">
+.search-label {
+	padding: 7px 0 0 !important;
+}
+
+.input-sm {
+	height: 25px !important;
+	margin-top: 5px;
+	padding: 3px 10px !important;
+}
+
+.btn-sm {
+	height: 25px;
+	margin-top: 5px;
+	padding: 3px 10px;
+}
+
+table.dataTable thead>tr>th {
+	padding: 5px;
+}
+
+table.dataTable tbody>tr>td {
+	padding: 5px;
+}
+
+.btn-primary {
+	background-color: #2188d5;
+}
+
+.submit {
+	margin-right: 40px;
+}
+.nav-tabs-custom>.nav-tabs>li.active{
+    border-bottom: 2px solid #069c97;
+    border-top-color: transparent;
+}
+.nav-tabs-custom>.nav-tabs>li.active>a{
+    border-right-color: transparent;
+    border-left-color: transparent;
+}
+.select-width-70{
+    width: 70px;
+}
+.nav-tabs-custom{
+    box-shadow: none;
+}
+.nav-tabs-custom>.nav-tabs{
+    border-bottom-color: #bfbfbf;
+}
+.box{
+    border-radius: 0;
+    box-shadow: none;
+}
+.required-spot{
+    color: red;
+    position: absolute;
+    font-size: 10px;
+    top: 5px;
+    font-weight: 600;
+}
+.marginl-107{
+    margin-left: 107px;
+}
+.marginl-207{
+    margin-left: 207px;
+}
+</style>
+</head>
+
+<body>
+	<div class="wrapper">
+		<!-- Content Wrapper. Contains page content -->
+		<div class="container-fluid">
+			<!-- Content Header (Page header) -->
+			<section class="content-header">
+				<!-- <div style="font-size: 15px; font-weight: bold; color: #585858; margin-top: 10px">内部员工</div> -->
+                <div class="nav-tabs-custom">
+                    <ul id="myTab" class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#insideEmp" data-toggle="tab"
+                               style="font-size: 15px; font-weight: bold; color: #585858;"> 日志监控 </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="insideEmp">
+                        <div class="row">
+                            <div class="col-lg-12 col-xs-12">
+                                <div class="box box-default" style= "border: none;">
+                                    <div class="box-header" style="padding-bottom: 0">
+                                        <form class="form-horizontal" style="margin-left: 10px;">
+                                            <div class="form-group" style="margin-top: 10px">
+                                                <span class="col-sm-1 control-label no-padding search-label">姓名：</span>
+                                                <div class="col-sm-1 no-padding">
+                                                    <input type="text" id="q1" class="input-sm form-control"
+                                                           placeholder="" />
+                                                </div>
+
+                                                <span class="col-sm-1 control-label no-padding search-label">操作菜单：</span>
+                                                <div class="col-sm-1 no-padding">
+                                                    <input type="text" id="q2" class="input-sm form-control"
+                                                           placeholder="" />
+                                                </div>
+
+                                                <span class="col-sm-1 control-label no-padding search-label">登录ID：</span>
+                                                <div class="col-sm-1 no-padding">
+                                                    <input type="text" id="q3" class="input-sm form-control"
+                                                           placeholder="" />
+                                                </div>
+
+                                                <span class="col-sm-1 control-label no-padding search-label">归属部门：</span>
+                                                <div class="col-sm-1 no-padding">
+                                                    <select class="form-control input-sm select-width-70" id="q4">
+                                                        <option>全部</option>
+                                                        <option>是</option>
+                                                        <option>否</option>
+                                                    </select>
+                                                </div>
+                                                <span class="col-sm-1 control-label no-padding search-label">日期范围：</span>
+                                                <div class="col-sm-1 no-padding">
+                                                    <input type="date" id="q5" class="input-sm form-control"
+                                                           placeholder="" />
+                                                </div>
+                                                <a class="btn btn-sm btn-primary" style="position: absolute;right: 10px;" id="searchBtn">查询</a>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <!-- /.box-header -->
+                                    <div class="box-body" style="margin-top: -4px">
+                                        <table id="dataTable"
+                                               class="table text-center table-striped table-bordered table-hover">
+                                            <thead>
+                                            <tr>
+                                            		<th>操作菜单</th>
+                                                	<th>登录ID</th>
+                                                	<th>姓名</th>
+                                                <th>所属部门</th>
+                                                <th>URL</th>
+                                                <th>操作者IP</th>
+                                                <th>操作时间</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody id="dataTableBody">
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- /.box-body -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+		<!-- jQuery 2.1.4 -->
+		<script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
+		<!-- jQuery UI 1.11.4 -->
+		<script src="plugins/jQueryUI/jquery-ui.min.js"></script>
+		<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+		<script>
+        $.widget.bridge('uibutton', $.ui.button);
+    </script>
+		<!-- Bootstrap 3.3.5 -->
+		<script src="js/bootstrap.min.js"></script>
+		<!-- Select2 -->
+		<script src="plugins/select2/select2.min.js"></script>
+		<!-- jstree -->
+		<script src="plugins/jstree/dist/jstree.min.js"></script>
+		<!-- DataTables -->
+		<script src="plugins/datatables/jquery.dataTables.min.js"></script>
+		<script src="plugins/datatables/dataTables.bootstrap.min.js"></script>
+		<!-- AdminLTE App -->
+		<script src="js/app.min.js"></script>
+		<!-- AdminLTE for demo purposes -->
+		<script src="js/demo.js"></script>
+		<!--<script src="js/bootstrap-toggle.min.js"></script>-->
+		<script src="js/mymodal.js"></script>
+		<script src="plugins/jqueryform/jquery.form.js"></script>
+		<script src="js/module/Global.js" type="text/javascript"></script>
+		<script src="js/module/common-ajax.js" type="text/javascript"></script>
+		<script src="js/module/common-datatable.js" type="text/javascript"></script>
+
+		<script type="text/javascript">
+        //定义界面操作对象
+        var User = {
+            table: dataTable,
+            selectId:null,
+            //表单提交回调
+            formCallBack : {
+                success : function (data) {
+                    $('#modal').modal('hide');
+                    User.table.reload();
+                    MyModal.alert('成功!');
+                },
+                error : function() {
+                    MyModal.alert({message:'系统发生错误!',modalClass:'modal-danger'});
+                }
+            }
+        };
+        //定义表格列渲染
+        User.tableCol = function () {
+            return [
+                {"data": "menuName"},
+                {"data": "loginId"},
+                {"data": "userName"},
+                {"data": "deptName"},
+                {"data": "url"},
+                {"data": "loginIp"},
+                {"data": "updateTime"}/* ,
+                {
+                    "data": "id", "mRender": function (id) {
+                        return '<img src="img/icon/修改.png" class="btn btn-xs" onclick="User.modify(' + id + ')" width=“28px” height="20px"/> ' +
+                            '<img src="img/icon/删除.png" class="btn btn-xs" onclick="User.delete(' + id + ')" width=“28px” height="20px"/>' +
+                            '<img src="img/icon/授权.png" class="btn btn-xs" onclick="User.allot(' + id + ')" width=“28px” height="20px"/>';
+                    }
+                } */
+            ];
+        };
+        //查询数据
+        User.query = function () {
+            //获取数据列定义
+            const col = User.tableCol();
+            //创建表格对象
+            const table = new CommonTable('dataTable', 'index/findLog/', col, 'data');
+            User.table = table;
+            //设置服务器分页
+            table.setServerSide(true);
+            table.setData({"q1": $('#q1').val(),"q2": $('#q2').val(),"q3": $('#q3').val(),"q4": $('#q4').val(),"q5": $('#q5').val()});
+            //表格实例化
+            table.init();
+        };
+        User.modify = function (id) {
+            new $ajax('/index/'+id,function (data) {
+                //查询赋值
+                const form = $("#form");
+                form.find('#userName').val(data.userName);
+                form.find('#menuName').val(data.menuName);
+                form.find('#loginId').val(data.loginId);
+                form.find('#deptName').val(data.deptName);
+                form.find('#startDate').val(data.startDate);
+                form.find('#endDate').val(data.endDate);
+                $('#modal').modal();
+            }).doGet().start();
+        };
+
+        //界面初始化操作
+        $(function () {
+            //第一次初始化
+            User.query();
+            //查询按钮触发
+            $('#searchBtn').off('click').on('click',User.query);
+        });
+
+    </script>
+</body>
+</html>
