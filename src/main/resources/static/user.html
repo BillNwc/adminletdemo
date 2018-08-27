@@ -8,7 +8,7 @@
 <title>Demo</title>
 <link href="img/favicon.ico" rel="shortcut icon" />
 <link href="plugins/select2/select2.min.css" rel="stylesheet"
-	type="textcss" />
+	type="text/css" />
 <link rel="stylesheet" href="css/bootstrap.min.css" />
 <link rel="stylesheet" href="css/font-awesome.min.css" />
 <link rel="stylesheet" href="css/ionicons.min.css" />
@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="css/AdminLTE.min.css" />
 <link rel="stylesheet" href="css/skins/_all-skins.min.css" />
 <link href="plugins/jstree/dist/themes/default/style.min.css"
-	rel="stylesheet" type="textcss" />
+	rel="stylesheet" type="text/css" />
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -194,19 +194,19 @@ table.dataTable tbody>tr>td {
                                             <div class="form-group" style="margin-top: 10px">
                                                 <span class="col-sm-1 control-label no-padding search-label">用户登录号：</span>
                                                 <div class="col-sm-1 no-padding">
-                                                    <input type="text" id="q1" class="input-sm form-control"
+                                                    <input type="text" id="q21" class="input-sm form-control"
                                                            placeholder="" />
                                                 </div>
 
                                                 <span class="col-sm-1 control-label no-padding search-label">用户姓名：</span>
                                                 <div class="col-sm-1 no-padding">
-                                                    <input type="text" id="q2" class="input-sm form-control"
+                                                    <input type="text" id="q22" class="input-sm form-control"
                                                            placeholder="" />
                                                 </div>
 
                                                 <span class="col-sm-1 control-label no-padding search-label">性别：</span>
                                                 <div class="col-sm-1 no-padding">
-                                                    <select class="form-control input-sm select-width-70" id="q3">
+                                                    <select class="form-control input-sm select-width-70" id="q23">
                                                         <option>全部</option>
                                                         <option>男</option>
                                                         <option>女</option>
@@ -215,7 +215,7 @@ table.dataTable tbody>tr>td {
 
                                                 <span class="col-sm-1 control-label no-padding search-label">管理员:</span>
                                                 <div class="col-sm-1 no-padding">
-                                                    <select class="form-control input-sm select-width-70" id="q4">
+                                                    <select class="form-control input-sm select-width-70" id="q24">
                                                         <option>全部</option>
                                                         <option>是</option>
                                                         <option>否</option>
@@ -223,7 +223,7 @@ table.dataTable tbody>tr>td {
                                                 </div>
                                                 <span class="col-sm-1 control-label no-padding search-label">用户状态：</span>
                                                 <div class="col-sm-1 no-padding">
-                                                    <select class="form-control input-sm select-width-70" id="q5">
+                                                    <select class="form-control input-sm select-width-70" id="q25">
                                                         <option>全部</option>
                                                         <option>是</option>
                                                         <option>否</option>
@@ -231,7 +231,7 @@ table.dataTable tbody>tr>td {
                                                 </div>
                                                 <a class="btn btn-sm btn-primary" style="position: absolute;right: 130px;" id="addBtn">添加</a>
                                                 <a class="btn btn-sm btn-primary" style="position: absolute;right: 70px;" id="improtBtn">导入</a>
-                                                <a class="btn btn-sm btn-primary" style="position: absolute;right: 10px;" id="searchBtn">查询</a>
+                                                <a class="btn btn-sm btn-primary" style="position: absolute;right: 10px;" id="searchBtn2">查询</a>
                                             </div>
                                         </form>
                                     </div>
@@ -365,11 +365,36 @@ table.dataTable tbody>tr>td {
 					</div>
 					<!-- /.modal-content -->
 				</div>
-				<!-- /.modal -->
+				<!-- 授权modal -->
+                <div class="modal fade" id="impowerModal" tabindex="-1" role="dialog"
+                     aria-labelledby="modal" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"
+                                        aria-hidden="true">&times;</button>
+                                <h6 class="modal-title">角色授权：</h6>
+                            </div>
+                            <div class="modal-body">
+                                <div id="tree" style="min-height: 100px;max-height:300px;overflow-y: auto">
+                                </div>
+                                <div class="row text-center">
+                                    <span class="col-sm-3 control-label"></span>
+                                    <div class="col-sm-5" style="padding-left:0;">
+                                        <button type="button" class="btn btn-sm btn-primary submit" onclick="User.impowerSubmit()">保存</button>
+                                        <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">返回</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.box-body -->
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
 			</section>
 			<!-- /.content -->
 		</div>
-
+    </div>
 		<!-- jQuery 2.1.4 -->
 		<script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
 		<!-- jQuery UI 1.11.4 -->
@@ -471,7 +496,35 @@ table.dataTable tbody>tr>td {
                 }
             });
         };
-        
+        //授权
+        User.impower = function () {
+            $('#tree').jstree({
+                'plugins': [ "checkbox","types","wholerow"],
+                'checkbox': { cascade: ""},
+                'core': {
+                    'data' : {
+                        "url" : "index/treeData"
+                    },
+                    "themes" : { "stripes" : false }
+                },
+                "types" : {
+                    "default" : {
+                        "icon" : "fa fa-user icon-state-warning icon-lg"
+                    },
+                    "file" : {
+                        "icon" : "fa fa-user icon-state-warning icon-lg"
+                    }
+                }
+
+            });
+            $('#impowerModal').modal();
+        };
+        User.impowerSubmit = function () {
+            //获取选中的节点信息
+            console.info($('#tree').jstree('get_selected',{full:true}));
+            //获取选中的节点ID数组
+            console.info($('#tree').jstree('get_selected'));
+        };
         //界面初始化操作
         $(function () {
             //第一次初始化
@@ -525,7 +578,7 @@ table.dataTable tbody>tr>td {
             User2.table = table;
             //设置服务器分页
             table.setServerSide(true);
-            table.setData({"q1": $('#q1').val(),"q2": $('#q2').val(),"q3": $('#q3').val(),"q4": $('#q4').val(),"q5": $('#q5').val()});
+            table.setData({"q1": $('#q21').val(),"q2": $('#q22').val(),"q3": $('#q23').val(),"q4": $('#q24').val(),"q5": $('#q52').val()});
             //表格实例化
             table.init();
         };
@@ -564,7 +617,7 @@ table.dataTable tbody>tr>td {
             //第一次初始化
             User2.query();
             //查询按钮触发
-            $('#searchBtn').off('click').on('click',User2.query);
+            $('#searchBtn2').off('click').on('click',User2.query);
             //添加按钮触发
             $('#addBtn').off('click').on('click',User2.add);
         });

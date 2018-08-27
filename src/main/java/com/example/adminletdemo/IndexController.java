@@ -1,11 +1,8 @@
 package com.example.adminletdemo;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+import com.example.adminletdemo.page.PageInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -16,8 +13,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.alibaba.fastjson.JSONObject;
-import com.example.adminletdemo.page.PageInfo;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 这里需要写注释
@@ -115,5 +115,37 @@ public class IndexController {
 		Map m = new HashMap();
 		m.put("success", true);
 		return m;
+	}
+
+	@RequestMapping(path = "/treeData")
+	public JSONArray treeData() {
+		//mock data
+		JSONArray datas = new JSONArray();
+		JSONObject root = new JSONObject();
+		root.put("id",1);
+		root.put("text","根节点1");
+		JSONObject rootState = new JSONObject();
+		rootState.put("opened",true);
+		root.put("state",rootState);
+		JSONArray childrens = new JSONArray();
+		for(int i =0;i<20;i++){
+			JSONObject children1 = new JSONObject();
+			children1.put("id",2+""+i);
+			children1.put("text","根节点-sub1");
+			JSONObject children1State = new JSONObject();
+			children1State.put("selected",true);
+			children1.put("state",children1State);
+			JSONArray childrens1 = new JSONArray();
+			JSONObject children2 = new JSONObject();
+			children2.put("id",3+""+i);
+			children2.put("text","根节点-sub1-sub1");
+			childrens1.add(children2);
+			children1.put("children",childrens1);
+			childrens.add(children1);
+		}
+		root.put("children",childrens);
+		datas.add(root);
+		log.info(datas.toJSONString());
+		return datas;
 	}
 }
