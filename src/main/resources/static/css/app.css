@@ -71,3 +71,6 @@ table.dataTable tbody>tr>td {
     right:0 !important;
     top:-4px;
 }
+.modal-backdrop{
+    background-color: transparent;
+}
