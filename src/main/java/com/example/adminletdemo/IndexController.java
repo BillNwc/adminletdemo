@@ -88,7 +88,8 @@ public class IndexController {
 	public Map save(DemoEntity data) {
 		log.info("save data's " + data);
 		Map m = new HashMap();
-		m.put("success", true);
+		m.put("success", false);
+		m.put("message", "错了哦");
 		return m;
 	}
 

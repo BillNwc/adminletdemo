@@ -473,9 +473,13 @@
             //表单提交回调
             formCallBack : {
                 success : function (data) {
-                    $('#modal').modal('hide');
-                    User2.table.reload();
-                    MyModal.alert('成功!');
+                	if (!data.success) {
+                		MyModal.alert(data.message);
+                	}else{
+                		$('#modal').modal('hide');
+                        User2.table.reload();
+                        MyModal.alert('成功!');
+                	}
                 },
                 error : function() {
                     MyModal.alert({message:'系统发生错误!',modalClass:'modal-danger'});
