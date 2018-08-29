@@ -1,101 +1,31 @@
 <!DOCTYPE html>
 <html class="no-js">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport"
-	content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>Demo</title>
-<link href="img/favicon.ico" rel="shortcut icon" />
-<link href="plugins/select2/select2.min.css" rel="stylesheet"
-	type="text/css" />
-<link rel="stylesheet" href="css/bootstrap.min.css" />
-<link rel="stylesheet" href="css/font-awesome.min.css" />
-<link rel="stylesheet" href="css/ionicons.min.css" />
-<link rel="stylesheet"
-	href="plugins/datatables/dataTables.bootstrap.css" />
-<link rel="stylesheet" href="css/AdminLTE.min.css" />
-<link rel="stylesheet" href="css/skins/_all-skins.min.css" />
-<link href="plugins/jstree/dist/themes/default/style.min.css"
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Demo</title>
+    <link href="img/favicon.ico" rel="shortcut icon" />
+    <link href="plugins/select2/select2.min.css" rel="stylesheet"
+        type="text/css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/ionicons.min.css" />
+    <link rel="stylesheet"
+        href="plugins/datatables/dataTables.bootstrap.css" />
+    <link rel="stylesheet" href="css/AdminLTE.min.css" />
+    <link rel="stylesheet" href="css/skins/_all-skins.min.css" />
+    <link href="plugins/jstree/dist/themes/default/style.min.css"
 	rel="stylesheet" type="text/css" />
-
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
+    <link rel="stylesheet" type="text/css"
+          href="plugins/bootstrap-validate/bootstrapValidator.min.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="css/app.css"/>
+    <!--[if lt IE 9]>
     <script src="js/html5shiv.min.js"></script>
     <script src="js/respond.min.js"></script>
     <![endif]-->
-<style type="text/css">
-    .search-label {
-        padding: 7px 0 0 !important;
-    }
-
-    .input-sm {
-        height: 25px !important;
-        margin-top: 5px;
-        padding: 3px 10px !important;
-    }
-
-    .btn-sm {
-        height: 25px;
-        margin-top: 5px;
-        padding: 3px 10px;
-    }
-
-    table.dataTable thead>tr>th {
-        padding: 5px;
-    }
-
-    table.dataTable tbody>tr>td {
-        padding: 5px;
-    }
-
-    .btn-primary {
-        background-color: #2188d5;
-    }
-
-    .submit {
-        margin-right: 40px;
-    }
-    .nav-tabs-custom>.nav-tabs>li.active{
-        border-bottom: 2px solid #069c97;
-        border-top-color: transparent;
-    }
-    .nav-tabs-custom>.nav-tabs>li.active>a{
-        border-right-color: transparent;
-        border-left-color: transparent;
-    }
-    .select-width-70{
-        width: 70px;
-    }
-    .nav-tabs-custom{
-        box-shadow: none;
-    }
-    .nav-tabs-custom>.nav-tabs{
-        border-bottom-color: #bfbfbf;
-    }
-    .box{
-        border-radius: 0;
-        box-shadow: none;
-    }
-    .required-spot{
-        color: red;
-        position: absolute;
-        font-size: 10px;
-        top: 5px;
-        font-weight: 600;
-    }
-    .marginl-107{
-        margin-left: 107px;
-    }
-    .marginl-207{
-        margin-left: 207px;
-    }
-    .jstree-default .jstree-clicked{
-        box-shadow:none;
-        background: none;
-    }
-</style>
 </head>
 
 <body>
@@ -291,7 +221,7 @@
 									<div class="form-group">
 										<span class="col-sm-3 control-label" style="font-size: 12px;">所属部门：</span>
 										<div class="col-sm-5" style="padding-left:0;">
-											<input type="text" class="form-control " style="width: 200px; height: 24px; border-radius:5px; " name="deptName" id="deptName" placeholder="请输入归属部门" />
+											<input type="text" class="form-control " required style="width: 200px; height: 24px; border-radius:5px; " name="deptName" id="deptName" placeholder="请输入归属部门" />
                                             <span class="required-spot marginl-207">＊</span>
 										</div>
 									</div>
@@ -316,7 +246,7 @@
 									<div class="form-group">
 										<span class="col-sm-3 control-label" style="font-size: 12px;">员工姓名：</span>
 										<div class="col-sm-5" style="padding-left:0;">
-											<input type="text" class="form-control" style="width: 200px; height: 24px; border-radius:5px;" name="phone" id="phone" placeholder="请输入员工姓名" />
+											<input type="text" class="form-control" required style="width: 200px; height: 24px; border-radius:5px;" name="empName" id="empName" placeholder="请输入员工姓名" />
                                             <span class="required-spot marginl-207">＊</span>
 										</div>
 									</div>
@@ -358,7 +288,7 @@
 									<div class="form-group text-center">
 										<span class="col-sm-3 control-label"></span>
 										<div class="col-sm-5" style="padding-left:0;">
-											<button type="button" class="btn btn-sm btn-primary submit" onclick="User.formSubmit()">保存</button>
+											<button type="button" class="btn btn-sm btn-primary submit" onclick="User2.formSubmit()">保存</button>
 											<button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">返回</button>
 										</div>
 									</div>
@@ -423,6 +353,8 @@
 		<!--<script src="js/bootstrap-toggle.min.js"></script>-->
 		<script src="js/mymodal.js"></script>
 		<script src="plugins/jqueryform/jquery.form.js"></script>
+        <script src="plugins/bootstrap-validate/bootstrapValidator.min.js"></script>
+        <script src="plugins/bootstrap-validate/zh_CN.js"></script>
 		<script src="js/module/Global.js" type="text/javascript"></script>
 		<script src="js/module/common-ajax.js" type="text/javascript"></script>
 		<script src="js/module/common-datatable.js" type="text/javascript"></script>
@@ -584,7 +516,11 @@
             table.init();
         };
         User2.formSubmit = function () {
-            $('#form').ajaxSubmit(User.formCallBack);
+            //检查表单
+            var $form = $('#form');
+            if($form.data('bootstrapValidator').validate().isValid()){
+                $form.ajaxSubmit(User.formCallBack);
+            }
         };
         User2.add = function () {
             $('#modal').modal();
@@ -617,6 +553,26 @@
         $(function () {
             //第一次初始化
             User2.query();
+            //注册form为验证表单
+            Global.registerValidForm('form',{
+                //phoneNumber为表单元素的name
+                phoneNumber:{
+                    validators: {
+                        notEmpty: {
+                            message: '手机号码不能为空'
+                        },
+                        stringLength: {
+                            min: 11,
+                            max: 11,
+                            message: '请输入11位手机号码'
+                        },
+                        regexp: {
+                            regexp: /^1[3|5|8]{1}[0-9]{9}$/,
+                            message: '请输入正确的手机号码'
+                        }
+                    }
+                }
+            });
             //查询按钮触发
             $('#searchBtn2').off('click').on('click',User2.query);
             //添加按钮触发
