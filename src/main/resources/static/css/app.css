@@ -1,36 +1,76 @@
-.chart-legend li {
-    float: left;
+.search-label {
+    padding: 7px 0 0 !important;
 }
 
-.chart-legend li span {
-    display: inline-block;
-    width: 12px;
-    height: 12px;
-    margin-right: 5px;
+.input-sm {
+    height: 25px !important;
+    margin-top: 5px;
+    padding: 3px 10px !important;
 }
 
-.color {
-    background-color: #FE8463;
-    background-color: #9BCA63;
-    background-color: #FAD860;
-    background-color: #F3A43B;
-    background-color: #60C0DD;
-    background-color: #D7504B;
-    background-color: #C6E579;
-    background-color: #F4E001;
-    background-color: #F0805A;
-    background-color: #26C0C0;
-    background-color: #e93f33;
-    background-color: #ff6384;
-    background-color: #36a2eb;
-    background-color: #ffce56;
-    background-color: #4bc0c0;
-    background-color: #9966ff;
-    background-color: #ff9f40;
-
+.btn-sm {
+    height: 25px;
+    margin-top: 5px;
+    padding: 3px 10px;
 }
 
-.tooltip-inner {
-    text-align:left;
-    max-width: 600px;
+table.dataTable thead>tr>th {
+    padding: 5px;
+}
+
+table.dataTable tbody>tr>td {
+    padding: 5px;
+}
+
+.btn-primary {
+    background-color: #2188d5;
+}
+
+.submit {
+    margin-right: 40px;
+}
+.nav-tabs-custom>.nav-tabs>li.active{
+    border-bottom: 2px solid #069c97;
+    border-top-color: transparent;
+}
+.nav-tabs-custom>.nav-tabs>li.active>a{
+    border-right-color: transparent;
+    border-left-color: transparent;
+}
+.select-width-70{
+    width: 70px;
+}
+.nav-tabs-custom{
+    box-shadow: none;
+}
+.nav-tabs-custom>.nav-tabs{
+    border-bottom-color: #bfbfbf;
+}
+.box{
+    border-radius: 0;
+    box-shadow: none;
+}
+.required-spot{
+    color: red;
+    position: absolute;
+    font-size: 10px;
+    top: 5px;
+    font-weight: 600;
+}
+.marginl-107{
+    margin-left: 107px;
+}
+.marginl-207{
+    margin-left: 207px;
+}
+.jstree-default .jstree-clicked{
+    box-shadow:none;
+    background: none;
+}
+.form-control-feedback{
+    right:0 !important;
+    top:-4px;
+}
+.modal-backdrop{
+    background-color: transparent;
 }

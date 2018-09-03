@@ -18,6 +18,24 @@ var Global = {
 	loadDictionaryByJquery : function (selectObj, classid, attributeid){
 		loadDictionaryByJquery(selectObj, classid, attributeid);
 	},
+	registerValidForm :function (formId, fields) {
+        $('#'+formId).bootstrapValidator({
+			//剔除
+            excluded: [':disabled', ':hidden', ':not(:visible)'],
+            //返回图标
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            //验证规则
+            fields: fields,
+            //实时验证
+            live: 'enabled',
+            //默认信息
+            message: '该字段不能为空'
+        });
+    }
  };
 
 /**
